@@ -4,6 +4,10 @@
 #include "Queue1Public.h"
 
 #include <iostream>
+<<<<<<< codex/implement-queue-class-with-functionalities-gggwo4
+#include <limits>
+=======
+>>>>>>> main
 
 int readInt(const char* prompt) {
     int value = 0;
@@ -13,12 +17,32 @@ int readInt(const char* prompt) {
             return value;
         }
 
+<<<<<<< codex/implement-queue-class-with-functionalities-gggwo4
+        std::cout << "Ошибка ввода. Введите целое число." << std::endl;
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+}
+
+void printMenu() {
+    std::cout
+        << "\n1 - Добавить элемент\n"
+        << "2 - Извлечь элемент\n"
+        << "3 - Вывести очередь\n"
+        << "4 - Вычислить требуемое значение\n"
+        << "5 - Создать копию очереди\n"
+        << "6 - Слить исходную очередь с копией\n"
+        << "7 - Выход\n";
+}
+
+=======
         std::cout << "Ошибка ввода. Попробуйте еще раз." << std::endl;
         std::cin.clear();
         std::cin.ignore(10000, '\n');
     }
 }
 
+>>>>>>> main
 void runPublicMenu() {
     std::cout << "\nРежим наследования: public" << std::endl;
     Queue1Public queue;
@@ -26,6 +50,9 @@ void runPublicMenu() {
     bool hasCopy = false;
 
     while (true) {
+<<<<<<< codex/implement-queue-class-with-functionalities-gggwo4
+        printMenu();
+=======
         std::cout
             << "\n1 - Добавить элемент\n"
             << "2 - Извлечь элемент\n"
@@ -35,6 +62,7 @@ void runPublicMenu() {
             << "6 - Слить исходную очередь с копией\n"
             << "7 - Выход\n";
 
+>>>>>>> main
         int choice = readInt("Выберите пункт: ");
 
         if (choice == 1) {
@@ -55,13 +83,22 @@ void runPublicMenu() {
         } else if (choice == 5) {
             copiedQueue = queue.createCopy();
             hasCopy = true;
+<<<<<<< codex/implement-queue-class-with-functionalities-gggwo4
+            std::cout << "Копия очереди создана:" << std::endl;
+            copiedQueue.print();
+=======
             std::cout << "Копия очереди создана." << std::endl;
+>>>>>>> main
         } else if (choice == 6) {
             if (!hasCopy) {
                 std::cout << "Сначала создайте копию (пункт 5)." << std::endl;
             } else {
                 Queue merged = Queue::merge(queue, copiedQueue);
+<<<<<<< codex/implement-queue-class-with-functionalities-gggwo4
+                std::cout << "Результат слияния:" << std::endl;
+=======
                 std::cout << "Результат слияния: " << std::endl;
+>>>>>>> main
                 merged.print();
             }
         } else if (choice == 7) {
@@ -79,6 +116,9 @@ void runProtectedMenu() {
     bool hasCopy = false;
 
     while (true) {
+<<<<<<< codex/implement-queue-class-with-functionalities-gggwo4
+        printMenu();
+=======
         std::cout
             << "\n1 - Добавить элемент\n"
             << "2 - Извлечь элемент\n"
@@ -88,6 +128,7 @@ void runProtectedMenu() {
             << "6 - Слить исходную очередь с копией\n"
             << "7 - Выход\n";
 
+>>>>>>> main
         int choice = readInt("Выберите пункт: ");
 
         if (choice == 1) {
@@ -108,13 +149,22 @@ void runProtectedMenu() {
         } else if (choice == 5) {
             copiedQueue = queue.createCopyQueue();
             hasCopy = true;
+<<<<<<< codex/implement-queue-class-with-functionalities-gggwo4
+            std::cout << "Копия очереди создана:" << std::endl;
+            copiedQueue.print();
+=======
             std::cout << "Копия очереди создана." << std::endl;
+>>>>>>> main
         } else if (choice == 6) {
             if (!hasCopy) {
                 std::cout << "Сначала создайте копию (пункт 5)." << std::endl;
             } else {
                 Queue merged = queue.mergeWith(copiedQueue);
+<<<<<<< codex/implement-queue-class-with-functionalities-gggwo4
+                std::cout << "Результат слияния:" << std::endl;
+=======
                 std::cout << "Результат слияния: " << std::endl;
+>>>>>>> main
                 merged.print();
             }
         } else if (choice == 7) {
@@ -132,6 +182,9 @@ void runPrivateMenu() {
     bool hasCopy = false;
 
     while (true) {
+<<<<<<< codex/implement-queue-class-with-functionalities-gggwo4
+        printMenu();
+=======
         std::cout
             << "\n1 - Добавить элемент\n"
             << "2 - Извлечь элемент\n"
@@ -141,6 +194,7 @@ void runPrivateMenu() {
             << "6 - Слить исходную очередь с копией\n"
             << "7 - Выход\n";
 
+>>>>>>> main
         int choice = readInt("Выберите пункт: ");
 
         if (choice == 1) {
@@ -161,13 +215,22 @@ void runPrivateMenu() {
         } else if (choice == 5) {
             copiedQueue = queue.createCopyQueue();
             hasCopy = true;
+<<<<<<< codex/implement-queue-class-with-functionalities-gggwo4
+            std::cout << "Копия очереди создана:" << std::endl;
+            copiedQueue.print();
+=======
             std::cout << "Копия очереди создана." << std::endl;
+>>>>>>> main
         } else if (choice == 6) {
             if (!hasCopy) {
                 std::cout << "Сначала создайте копию (пункт 5)." << std::endl;
             } else {
                 Queue merged = queue.mergeWith(copiedQueue);
+<<<<<<< codex/implement-queue-class-with-functionalities-gggwo4
+                std::cout << "Результат слияния:" << std::endl;
+=======
                 std::cout << "Результат слияния: " << std::endl;
+>>>>>>> main
                 merged.print();
             }
         } else if (choice == 7) {
