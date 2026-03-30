@@ -41,6 +41,25 @@ Queue Queue1Private::mergeWith(const Queue& other) const {
 }
 
 int Queue1Private::findRequiredValue() const {
+    double harmonicMean = 0.0;
+    if (!getHarmonicMean(harmonicMean)) {
+        return 0;
+    }
+
+    return countElementsGreaterThan(harmonicMean);
+}
+
+void Queue1Private::printRequiredValue() const {
+    double harmonicMean = 0.0;
+    if (!getHarmonicMean(harmonicMean)) {
+        std::cout << "Невозможно вычислить среднее гармоническое (очередь пуста или есть 0)."
+                  << std::endl;
+        return;
+    }
+
+    std::cout << "Среднее гармоническое: " << harmonicMean << std::endl;
+    std::cout << "Количество элементов, больших среднего гармонического: "
+              << countElementsGreaterThan(harmonicMean) << std::endl;
     CounterContext context{0};
     forEachFromOldest(countPositive, &context);
     return context.positiveCount;

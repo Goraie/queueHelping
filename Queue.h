@@ -34,6 +34,8 @@ public:
     Queue createCopy() const;
     static Queue merge(const Queue& first, const Queue& second);
 
+    bool getHarmonicMean(double& mean) const;
+    int countElementsGreaterThan(double value) const;
 protected:
     void forEachFromOldest(void (*visitor)(int, void*), void* context) const;
 

@@ -112,6 +112,45 @@ Queue Queue::merge(const Queue& first, const Queue& second) {
     return result;
 }
 
+bool Queue::getHarmonicMean(double& mean) const {
+    if (tail == nullptr) {
+        return false;
+    }
+
+    double reciprocalSum = 0.0;
+    int count = 0;
+
+    Node* current = tail;
+    while (current != nullptr) {
+        if (current->data == 0) {
+            return false;
+        }
+
+        reciprocalSum += 1.0 / static_cast<double>(current->data);
+        ++count;
+        current = current->prev;
+    }
+
+    if (reciprocalSum == 0.0) {
+        return false;
+    }
+
+    mean = static_cast<double>(count) / reciprocalSum;
+    return true;
+}
+
+int Queue::countElementsGreaterThan(double value) const {
+    int count = 0;
+    Node* current = tail;
+
+    while (current != nullptr) {
+        if (static_cast<double>(current->data) > value) {
+            ++count;
+        }
+        current = current->prev;
+    }
+
+    return count;
 void Queue::visitFromOldest(const Node* node, void (*visitor)(int, void*), void* context) {
     if (node == nullptr) {
         return;
