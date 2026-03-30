@@ -36,11 +36,6 @@ public:
 
     bool getHarmonicMean(double& mean) const;
     int countElementsGreaterThan(double value) const;
-protected:
-    void forEachFromOldest(void (*visitor)(int, void*), void* context) const;
-
-private:
-    static void visitFromOldest(const Node* node, void (*visitor)(int, void*), void* context);
 };
 
 #endif

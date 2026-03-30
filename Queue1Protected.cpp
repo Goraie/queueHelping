@@ -2,19 +2,6 @@
 
 #include <iostream>
 
-namespace {
-struct CounterContext {
-    int positiveCount;
-};
-
-void countPositive(int value, void* rawContext) {
-    CounterContext* context = static_cast<CounterContext*>(rawContext);
-    if (value > 0) {
-        ++context->positiveCount;
-    }
-}
-}
-
 void Queue1Protected::add(int value) {
     enqueue(value);
 }
@@ -60,12 +47,4 @@ void Queue1Protected::printRequiredValue() const {
     std::cout << "Среднее гармоническое: " << harmonicMean << std::endl;
     std::cout << "Количество элементов, больших среднего гармонического: "
               << countElementsGreaterThan(harmonicMean) << std::endl;
-    CounterContext context{0};
-    forEachFromOldest(countPositive, &context);
-    return context.positiveCount;
-}
-
-void Queue1Protected::printRequiredValue() const {
-    std::cout << "Требуемое значение (количество положительных элементов): "
-              << findRequiredValue() << std::endl;
 }

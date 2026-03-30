@@ -22,26 +22,4 @@ void Queue1Public::printRequiredValue() const {
     std::cout << "Среднее гармоническое: " << harmonicMean << std::endl;
     std::cout << "Количество элементов, больших среднего гармонического: "
               << countElementsGreaterThan(harmonicMean) << std::endl;
-namespace {
-struct CounterContext {
-    int positiveCount;
-};
-
-void countPositive(int value, void* rawContext) {
-    CounterContext* context = static_cast<CounterContext*>(rawContext);
-    if (value > 0) {
-        ++context->positiveCount;
-    }
-}
-}
-
-int Queue1Public::findRequiredValue() const {
-    CounterContext context{0};
-    forEachFromOldest(countPositive, &context);
-    return context.positiveCount;
-}
-
-void Queue1Public::printRequiredValue() const {
-    std::cout << "Требуемое значение (количество положительных элементов): "
-              << findRequiredValue() << std::endl;
 }
