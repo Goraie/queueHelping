@@ -151,4 +151,15 @@ int Queue::countElementsGreaterThan(double value) const {
     }
 
     return count;
+void Queue::visitFromOldest(const Node* node, void (*visitor)(int, void*), void* context) {
+    if (node == nullptr) {
+        return;
+    }
+
+    visitFromOldest(node->prev, visitor, context);
+    visitor(node->data, context);
+}
+
+void Queue::forEachFromOldest(void (*visitor)(int, void*), void* context) const {
+    visitFromOldest(tail, visitor, context);
 }
